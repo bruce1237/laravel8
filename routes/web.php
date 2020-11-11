@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LmsController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/',[LmsController::class,'index']);
-Route::get('index',[LmsController::class,'index']);
-Route::get('aboutus',[LmsController::class,'aboutus']);
-Route::get('contactus',[LmsController::class,'contactus']);
+Route::get('/', [LmsController::class, 'index']);
+Route::get('index', [LmsController::class, 'index']);
+Route::get('aboutus', [LmsController::class, 'aboutus']);
+Route::get('contactus', [LmsController::class, 'contactus']);
+
+//without routerName
+// Route::get('/home', [HomeController::class, 'index']);
+
+//with routerName
+// Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+
+//with params
+Route::get('/home/{name?}', [HomeController::class, 'index'])->name('home.index');

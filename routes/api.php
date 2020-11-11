@@ -18,6 +18,30 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// with global constrict, please go to RouteServiceProvider.php
 Route::get('/users/{name?}', function ($name = null) {
-    return 'Hi User: '.$name;
+    return 'Hi User: ' . $name;
+});
+Route::get('/products/{id?}', function ($id = null) {
+    return 'Product ID: ' . $id;
+});
+
+// local constrict
+// Route::get('/users/{name?}', function ($name = null) {
+//     return 'Hi User: ' . $name;
+// })->where('name', '[a-zA-Z]+');
+
+
+// Route::get('/products/{id?}', function ($id = null) {
+//     return 'Product ID: ' . $id;
+// })->where('id', '[0-9]+');
+
+//Match
+Route::match(['get', 'post'], '/mathch', function (Request $request) {
+    return 'Requested method is '. $request->method();
+});
+
+//any
+Route::any('/any', function (Request $request) {
+    return 'Requested method is ' . $request->method();
 });
