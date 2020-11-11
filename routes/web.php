@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HTTPClientController;
 use App\Http\Controllers\LmsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +34,11 @@ Route::get('contactus', [LmsController::class, 'contactus']);
 
 //with params
 Route::get('/home/{name?}', [HomeController::class, 'index'])->name('home.index');
+
+Route::any('/user',[UserController::class,'index']);
+
+Route::get('/HttpClient',[HTTPClientController::class,'getAllPost']);
+Route::get('/HttpClient/{id?}',[HTTPClientController::class,'getPost']);
+Route::get('/HttpClient/addPost',[HTTPClientController::class,'addPost']);
+Route::get('/HttpClient/updatePost/{id}',[HTTPClientController::class,'updatePost']);
+Route::get('/HttpClient/delPost/{id}',[HTTPClientController::class,'delPost']);

@@ -95,3 +95,12 @@ Route::get('/home/{name}',[HomeController::class,'index']);
 ```
 Route::get('/home/{name?},[HomeController::calss,'index]);
 ```
+
+---
+# Questions
+1. usage of the routing name?  ```Route::get()->name('userage??')```
+2. 
+
+
+
+

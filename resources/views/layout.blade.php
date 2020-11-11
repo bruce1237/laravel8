@@ -41,7 +41,7 @@
     </ul>
   </div>  
 </nav>
-
+<x-header name='bss'/>
 <div class="container">
   @yield('content')
 </div>
