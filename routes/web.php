@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\FluentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HTTPClientController;
 use App\Http\Controllers\LmsController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +45,13 @@ Route::get('/HttpClient/{id?}',[HTTPClientController::class,'getPost']);
 Route::get('/HttpClient/addPost',[HTTPClientController::class,'addPost']);
 Route::get('/HttpClient/updatePost/{id}',[HTTPClientController::class,'updatePost']);
 Route::get('/HttpClient/delPost/{id}',[HTTPClientController::class,'delPost']);
+
+// Fluent Strings
+Route::get('/Fluent',[FluentController::class,'index']);
+
+Route::get('/login',[LoginController::class,'index'])->middleware('myRouteMiddleware');
+Route::post('/login',[LoginController::class,'login']);
+
+Route::get('/session/set',[SessionController::class,'storeSeesionData']);
+Route::get('/session/unset',[SessionController::class,'delSessionData']);
+Route::get('/session/get',[SessionController::class,'getSessionData']);

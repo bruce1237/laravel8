@@ -25,4 +25,11 @@ class UserController extends Controller
         ];
         return view('user', compact('name','users','component'));
     }
+    
+    public function request(Request $request)
+    {
+        // print_r($request);
+        // die();
+        dd($request->post());
+    }
 }
