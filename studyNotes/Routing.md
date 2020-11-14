@@ -99,6 +99,13 @@ Route::get('/home/{name?},[HomeController::calss,'index]);
 ---
 # Questions
 1. usage of the routing name?  ```Route::get()->name('userage??')```
+   
+   **answer**: use the route name in the blade instead of URL
+   ```
+   <form aciton ={{route('route.name)}}>
+   ....
+   </form>
+   ```
 2. 
 
 

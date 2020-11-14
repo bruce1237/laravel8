@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\FluentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HTTPClientController;
@@ -55,3 +56,10 @@ Route::post('/login',[LoginController::class,'login']);
 Route::get('/session/set',[SessionController::class,'storeSeesionData']);
 Route::get('/session/unset',[SessionController::class,'delSessionData']);
 Route::get('/session/get',[SessionController::class,'getSessionData']);
+
+//Database
+Route::get('/database/insert',[DatabaseController::class,'addData']);
+Route::get('/database/getAll','App\Http\Controllers\DatabaseController@getAllData');
+Route::get('/database/{id?}','App\Http\Controllers\DatabaseController@getDataByID');
+Route::get('/database/del/{name}', [DatabaseController::class,'delPost']);
+Route::get('/database/update/{id?}', [DatabaseController::class,'updatePost']);

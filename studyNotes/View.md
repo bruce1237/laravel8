@@ -167,5 +167,29 @@ return view('user', compact('name','users','component'));
 </div>
 ```
 *NOTE:* data can be pass through component and/or controller or both
+
+---
+
+## foreach
+
+```
+@foreach($array as $ar)
+    <h3>{{$ar->key}}</h3>
+@endforeach
+```
+
+## error msg
+```
+@error('email')
+    {{$message}}<br />
+@enderror
+```
+## if
+```
+@if(condition)
+    do something...
+@endif
+```
+
 ---
 # Questions
