@@ -97,6 +97,36 @@ Route::get('/home/{name?},[HomeController::calss,'index]);
 ```
 
 ---
+
+
+## Route Group -> prefix()
+
+for the following, the URL will add the prefix 'blade' to:
+* /about, 
+* /contact
+* ...
+  
+
+```
+Route::prefix('blade')->group(function(){
+    Route::get('', function () {
+        return view('layouts.index');
+    });
+    
+    Route::get('/about', function () {
+        return view('layouts.about');
+    });
+    
+    Route::get('/contact', function () {
+        return view('layouts.contact');
+    });
+
+});
+```
+
+
+
+
 # Questions
 1. usage of the routing name?  ```Route::get()->name('userage??')```
    

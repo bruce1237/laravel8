@@ -1,3 +1,31 @@
+# Pagination
+related files: 
+* PaginationController
+* myPosts.blade.php
+* MyPosts.php //Model
+
+```
+class PaginationController extends Controller
+{
+    //
+    public function index()
+    {
+        $posts = $this->getAllPosts();
+        return view('myPosts', compact('posts'));
+    }
+    
+    private function getAllPosts()
+    {
+        return MyPosts::paginate(10);
+    }
+}
+```
+
+
+**for the display issue**
+add ```Paginator::useBootstrap();``` to boot() function
+
+```
 <?php
 
 namespace App\Providers;
@@ -30,3 +58,4 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
     }
 }
+```
