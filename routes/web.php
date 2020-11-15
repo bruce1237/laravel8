@@ -63,3 +63,7 @@ Route::get('/database/getAll','App\Http\Controllers\DatabaseController@getAllDat
 Route::get('/database/{id?}','App\Http\Controllers\DatabaseController@getDataByID');
 Route::get('/database/del/{name}', [DatabaseController::class,'delPost']);
 Route::get('/database/update/{id?}', [DatabaseController::class,'updatePost']);
+Route::get('/database/innerJoin', [DatabaseController::class,'innerJoinTable']);
+Route::get('/database/leftJoin', [DatabaseController::class,'leftJoinTable']);
+Route::get('/database/rightJoin', [DatabaseController::class,'rightJoinTable']);
+Route::get('/database/model', [DatabaseController::class,'getDataByModel']);

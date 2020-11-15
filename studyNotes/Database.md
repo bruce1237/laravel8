@@ -35,3 +35,50 @@
 
 **Note:** if delete the whole table may lead to 404
 ---
+
+# Join
+## innerJoin
+
+```
+ public function innerJoinTable()
+    {
+        $request = DB::table('users')
+                    ->join('posts','users.id','=','posts.UserID')
+                    ->select('users.name',
+                             'users.email',
+                             'posts.Title',
+                             'posts.Body')
+                    ->get();
+
+                    dd($request);
+    }
+```
+## leftJoin
+```
+ public function leftJoinTable()
+    {
+        $request = DB::table('users')
+                    ->leftJoin('posts','posts.userID','=','users.id')
+                    ->select('users.name',
+                        'users.email',
+                        'posts.Title',
+                        'posts.Body')
+                    ->get();
+
+        return $request->toJson();
+    }
+```
+## rightJoin
+```
+public function rightJoinTable()
+    {
+        $request = DB::table('users')
+                    ->rightJoin('posts','posts.userID','=','users.id')
+                    ->select('users.name',
+                        'users.email',
+                        'posts.Title',
+                        'posts.Body')
+                    ->get();
+        return $request->toJson();
+    }
+```

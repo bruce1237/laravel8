@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use MongoDB\BSON\Timestamp;
@@ -51,5 +52,40 @@ class DatabaseController extends Controller
         ];
         $res = DB::table('users')->updateOrInsert(['id'=>$id],$data);
         dd($res);
+    }
+
+    public function innerJoinTable()
+    {
+        $request = DB::table('users')
+                    ->join('posts','users.id','=','posts.UserID')
+                    ->select('users.name','users.email','posts.Title','posts.Body')
+                    ->get();
+
+        return $request->toJson();
+    }
+
+    public function leftJoinTable()
+    {
+        $request = DB::table('users')
+                    ->leftJoin('posts','posts.userID','=','users.id')
+                    ->select('users.name','users.email','posts.Title','posts.Body')
+                    ->get();
+
+        return $request->toJson();
+    }
+
+    public function rightJoinTable()
+    {
+        $request = DB::table('users')
+                    ->rightJoin('posts','posts.userID','=','users.id')
+                    ->select('users.name','users.email','posts.Title','posts.Body')
+                    ->get();
+        return $request->toJson();
+    }
+
+    public function getDataByModel()
+    {
+        $data = Post::all();
+        return $data;
     }
 }
