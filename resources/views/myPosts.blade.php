@@ -31,6 +31,7 @@
         {{-- Pagination --}}
         <div class="d-flex justify-content-center">
             {{ $posts->render() }}
+            {{ $posts->links() }}
         </div>
     </div>
 

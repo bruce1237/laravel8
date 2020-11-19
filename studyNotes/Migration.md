@@ -20,6 +20,21 @@ insdie the migration file, there two functions up() and down(),
   
 * down(): run when the table is deleted
 
+---
+## some explain
+---
+* how to make foreign key?
+
+    ```$table->foreign('post_id')->references('id')->on('myPosts')->onDelete('cascade');```
+    
+    **```foreign('post_id')```**: is the FK of comment table, the **from** table
+
+    **```reference('id')```**: is the PK of myPosts table, the **to** table
+
+    **```onDelete('cascade')```**: 
+---
+
+
 once the up() has been done, use command: 
 ``` php artisan migrate ``` to migrate the tables'
 

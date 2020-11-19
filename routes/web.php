@@ -7,9 +7,14 @@ use App\Http\Controllers\HTTPClientController;
 use App\Http\Controllers\LmsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaginationController;
+use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
+use App\PaymentGateway\Payment;
+use App\PaymentGateway\PaymentFacade;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -100,3 +105,22 @@ Route::get('/local/{locale}',function($locale){
     App::setlocale($locale);
     return view('layouts.index');
 });
+
+Route::get('myPosts/addPost',[PostController::class,'addPost']);
+Route::get('myPosts/addComment/{id}',[PostController::class,'addComment']);
+Route::get('myPosts/getComment/{id}',[PostController::class,'getCommentsByPosts']);
+Route::get('phone',[PhoneController::class,'allUserWithPhone']);
+Route::get('phone/insert',[PhoneController::class,'insertPhone']);
+Route::get('phone/{id}',[PhoneController::class,'getPhoneByUserID']);
+
+Route::get('role/new',[RoleController::class,'addRole']);
+Route::get('role/user/new',[RoleController::class,'addUserWithRoles']);
+Route::get('role/user/{id}',[RoleController::class,'getAllRolesByUsers']);
+Route::get('role/{id}',[RoleController::class,'getAllUsersByRole']);
+
+
+
+
+
+
+

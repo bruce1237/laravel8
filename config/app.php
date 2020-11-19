@@ -1,5 +1,8 @@
 <?php
 
+use App\PaymentGateway\PaymentFacade;
+use App\Providers\PaymentServiceProvider;
+
 return [
 
     /*
@@ -175,6 +178,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // customized service providers
+        // PaymentServiceProvider::class,
+
     ],
 
     /*
@@ -226,6 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // 'Payment'=>PaymentFacade::class,
 
     ],
 

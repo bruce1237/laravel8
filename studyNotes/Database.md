@@ -2,6 +2,7 @@
 
 ## Create
 * single
+  * method 1
     ```
     public function addData()
         {
@@ -15,8 +16,24 @@
             dd($res);
         }
     ```
-* multiple 
+  * method 2
+    ```
+    $post = new Post();
+    $post->title = "First_Post Title";
+    $post->body= "First_Post Body";
+    $post->save();
+    ```
 
+
+
+
+* multiple : 
+    ```
+    DB::table('users')->insert([
+        ['email' => 'taylor@example.com', 'votes' => 0],
+        ['email' => 'dayle@example.com', 'votes' => 0],
+    ]);
+```
 
 ## Update
 ```

@@ -20,9 +20,15 @@ class PaginationController extends Controller
     }
 }
 ```
+## myPosts.blade.php
+use ```{{ $posts->render() }}``` or  ```{{ $posts->links() }}``` to show pagination
 
+---
 
-**for the display issue**
+ <br />
+ 
+
+# Pagination display issue
 add ```Paginator::useBootstrap();``` to boot() function
 
 ```
