@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HTTPClientController;
 use App\Http\Controllers\LmsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
@@ -117,6 +118,8 @@ Route::get('role/new',[RoleController::class,'addRole']);
 Route::get('role/user/new',[RoleController::class,'addUserWithRoles']);
 Route::get('role/user/{id}',[RoleController::class,'getAllRolesByUsers']);
 Route::get('role/{id}',[RoleController::class,'getAllUsersByRole']);
+
+Route::get('email/send',[MailController::class,'sendEmail']);
 
 
 
