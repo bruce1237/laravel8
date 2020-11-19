@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             // PhoneSeeder::class,
             // RoleSeeder::class,
             // RoleUserSeeder::class,
+            StudentSeeder::class,
         ]);
     }
 }

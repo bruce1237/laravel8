@@ -12,6 +12,7 @@ use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use App\PaymentGateway\Payment;
@@ -30,11 +31,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', [LmsController::class, 'index']);
+// Route::get('/', [LmsController::class, 'index']);
 Route::get('index', [LmsController::class, 'index']);
 Route::get('aboutus', [LmsController::class, 'aboutus']);
 Route::get('contactus', [LmsController::class, 'contactus']);
@@ -120,6 +121,9 @@ Route::get('role/user/{id}',[RoleController::class,'getAllRolesByUsers']);
 Route::get('role/{id}',[RoleController::class,'getAllUsersByRole']);
 
 Route::get('email/send',[MailController::class,'sendEmail']);
+Route::get('student/all',[StudentController::class,'allStudent']);
+Route::get('student/{id}',[StudentController::class,'getStudent']);
+Route::get('student/new',[StudentController::class,'newStudent']);
 
 
 
@@ -127,3 +131,7 @@ Route::get('email/send',[MailController::class,'sendEmail']);
 
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
